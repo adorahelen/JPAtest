@@ -17,19 +17,19 @@ public class JpAtestApplication {
         SpringApplication.run(JpAtestApplication.class, args);
     }
 
-    @Bean
-    public ApplicationRunner configure(UserRepository userRepository) {
-        return env -> {
-            User user1 = new User("beth", LocalDate.of(2020, Month.AUGUST,3));
-            User user2 = new User("beth", LocalDate.of(2020, Month.AUGUST,4));
-
-            userRepository.save(user1);
-            userRepository.save(user2);
-
-            userRepository.findAll().forEach(System.out::println);
-        };
-        //User{id=1, username='beth', registrationDate=2020-08-03}
-        //User{id=2, username='beth', registrationDate=2020-08-04}
-    }
+//    @Bean
+//    public ApplicationRunner configure(UserRepository userRepository) {
+//        return env -> {
+//            User user1 = new User("beth", LocalDate.of(2020, Month.AUGUST,3));
+//            User user2 = new User("beth", LocalDate.of(2020, Month.AUGUST,4));
+//
+//            userRepository.save(user1);
+//            userRepository.save(user2);
+//
+//            userRepository.findAll().forEach(System.out::println);
+//        };
+//        //User{id=1, username='beth', registrationDate=2020-08-03}
+//        //User{id=2, username='beth', registrationDate=2020-08-04}
+//    }
 
 }

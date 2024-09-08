@@ -19,10 +19,11 @@ public class HelloWorldJPATest {
 
         EntityManagerFactory emf =
                 Persistence.createEntityManagerFactory("ch02");
+        // 각 단위가 가지는 고유한 이름을 가지고 팩토리(영속성 단위-단위 각각에 대해 하나의 팩토리가 있다)를 호출한다.
 
         try {
-            EntityManager em = emf.createEntityManager();
-            em.getTransaction().begin();
+            EntityManager em = emf.createEntityManager(); // 팩토리 불렀으면, 매니저 생성
+            em.getTransaction().begin(); // 표준 트랜잭션 에이피아이 접근, 트랜잭션 시작
 
             Message message = new Message();
             message.setText("Hello World!");
@@ -58,3 +59,5 @@ public class HelloWorldJPATest {
     // Spring Data JPA는 JPA를 더 편리하게 사용하도록 도와주지만, 기본적으로는 JPA 위에 구축된 기술
 
 }
+//	•	순수 JPA를 사용하여 트랜잭션을 직접 관리하고 쿼리를 명시적으로 작성합니다.
+//	•	Spring Data JPA나 Hibernate와 같은 라이브러리를 사용하지 않고, JPA의 기본 API를 활용합니다.
